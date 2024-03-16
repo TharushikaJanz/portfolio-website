@@ -5,6 +5,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import { motion } from 'framer-motion';
+import avatar from "./avatar.webp"
 
 function Home() {
     const textAnimation = {
@@ -24,7 +25,7 @@ function Home() {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Avatar
               alt="Profile Picture"
-              src="src/avatar.webp"
+              src={avatar}
               sx={{ marginRight: 2 }}
             />
             <Typography
