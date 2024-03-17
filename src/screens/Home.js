@@ -1,11 +1,8 @@
 import React from "react";
 import {
-  AppBar,
-  Toolbar,
   Button,
   Typography,
   Box,
-  Avatar,
   IconButton,
   Container,
   Stack,
@@ -16,7 +13,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import { motion } from "framer-motion";
-import avatar from "./avatar.webp";
+import NavigationBar from "../components/NavigationBar";
 
 function Home() {
   const navigate = useNavigate();
@@ -33,84 +30,7 @@ function Home() {
 
   return (
     <Box sx={{ backgroundColor: "#F5F5F5", minHeight: "100vh" }}>
-      <AppBar
-        position="fixed"
-        color="transparent"
-        elevation={5}
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "#fff",
-        }}
-      >
-        <Toolbar sx={{ justifyContent: "space-between", paddingX: "16px" }}>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar
-              alt="Profile Picture"
-              src={avatar}
-              sx={{ marginRight: 2 }}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              fontWeight={"bold"}
-              color="rgba(0, 0, 0, 0.87)"
-            >
-              Tharushika Jansa
-            </Typography>
-          </Box>
-          <Box>
-            <Button
-              color="inherit"
-              href="#home"
-              onClick={() => handleNavigate("/")}
-              sx={{
-                marginX: 1,
-                color: "rgba(0, 0, 0, 0.87)",
-                fontWeight: "bold",
-              }}
-            >
-              HOME
-            </Button>
-            <Button
-              color="inherit"
-              href="#qualifications"
-              onClick={() => handleNavigate("/projects")}
-              sx={{
-                marginX: 1,
-                color: "rgba(0, 0, 0, 0.87)",
-                fontWeight: "bold",
-              }}
-            >
-              QUALIFICATIONS
-            </Button>
-            <Button
-              color="inherit"
-              href="#experience"
-              onClick={() => handleNavigate("/experience")}
-              sx={{
-                marginX: 1,
-                color: "rgba(0, 0, 0, 0.87)",
-                fontWeight: "bold",
-              }}
-            >
-              EXPERIENCE
-            </Button>
-            <Button
-              color="inherit"
-              href="#inquiry"
-              onClick={() => handleNavigate("/projects")}
-              sx={{
-                marginX: 1,
-                color: "rgba(0, 0, 0, 0.87)",
-                fontWeight: "bold",
-              }}
-            >
-              INQUIRY
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
+    <NavigationBar/>
       <Container
         maxWidth="lg"
         sx={{
