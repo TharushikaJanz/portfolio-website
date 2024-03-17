@@ -4,6 +4,7 @@ import Home from './screens/Home';
 import Projects from './screens/Projects';
 import Experience from './screens/Experience';
 import './App.css';
+import Inquiry from './screens/Inquiry';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
-          <Route path="/inquiry" element={<Experience />} />
+          <Route path="/inquiry" element={<Inquiry/>} />
         </Routes>
     </Router>
   );
