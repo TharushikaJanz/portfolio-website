@@ -11,9 +11,29 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NavigationBar from "../components/NavigationBar";
+import expense_app from '../components/expense-tracker.jpeg'
+import portfolio from '../components/portfolio.png'
+import spa from '../components/spa.jpeg'
+import wardrobe_whiz from '../components/wardrobe_whiz.jpg'
+import mobileApp from '../components/mobileApp.jpeg'
+
+
 
 function Projects() {
   const [repos, setRepos] = useState([]);
+
+  const repoImages = {
+    "ExpenseTrackerApp": expense_app,
+    "WardrobeWhiz": wardrobe_whiz,
+    "react-spa": spa,
+    "portfolio-website": portfolio,
+    "MobileAppDev_CW1": mobileApp,
+  };
+
+  // Define the function after the repoImages
+  const getImageForRepo = (repoName) => {
+    return repoImages[repoName] || expense_app; // Use the imported image as default if no match is found
+  };
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -26,7 +46,6 @@ function Projects() {
 
     fetchRepos();
   }, []);
-
   // Slider settings
   const settings = {
     dots: true,
@@ -63,15 +82,31 @@ function Projects() {
       <NavigationBar />
       <Container maxWidth="lg" sx={{ py: 8, overflow: "hidden" }}>
         <Box sx={{ textAlign: "center", m: 6 }}>
-         
-          <Typography variant="subtitle1" margin={1} sx={{ color: "#328CC1", letterSpacing: 1}}>
-            some of my recent works
-          </Typography> 
           <Typography
-            variant="h4"
-            component="h2"
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            sx={{
+              fontWeight: "bold",
+              fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+              letterSpacing: 1.5,
+            }}
+          >
+            some of my recent works
+          </Typography>
+          <Typography
+            variant="h3"
+            component="h3"
+            textAlign={"center"}
             gutterBottom
-            sx={{ fontWeight: "bold", color: "#0B3C5D", letterSpacing: 1 }}
+            sx={{
+              fontWeight: "bold",
+              color: "#1D2731",
+              textTransform: "uppercase",
+              fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+              letterSpacing: 2,
+              textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+            }}
           >
             PROJECTS
           </Typography>
@@ -111,7 +146,7 @@ function Projects() {
                     flexGrow: 0,
                     flexShrink: 0,
                   }}
-                  image="/path-to-your-project-image.jpg"
+                  image={getImageForRepo(repo.name)}
                   alt={repo.name}
                 />
                 <CardContent
